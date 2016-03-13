@@ -1,8 +1,20 @@
-<div class="panel panel-default artpanel">
-    <div class="panel-heading artpanels">
-		<span>Daftar Role</span>
-		<a class="pull-right" href="<?php echo site_url('manage');?>">Dashboard</a>
-    </div>
+ <!-- Page Heading -->
+ <div class="row">
+ 	<div class="col-lg-12">
+ 		<h1 class="page-header">
+ 			Role
+ 		</h1>
+ 		<ol class="breadcrumb">
+ 			<li>
+ 				<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+ 			</li>
+ 			<li class="active">
+ 				<i class="fa fa-edit"></i> List
+ 			</li>
+ 		</ol>
+ 	</div>
+ </div>
+ <!-- /.row -->
 
     <div class="panel-body bods" align="justify">
 		<div class="row tombols">
@@ -26,8 +38,8 @@
 							<?php foreach ($role as $key): ?>
 								<tr>
 									<td>
-										<a href="<?php echo site_url('manage/user/role/edit/'.$key['user_role_id']) ?>">
-											<?php echo $key['user_role_name'] ?>
+										<a href="<?php echo site_url('user/role/edit/'.$key['role_id']) ?>">
+											<?php echo $key['role_name'] ?>
 										</a>
 									</td>
 								</tr>
@@ -38,4 +50,3 @@
 			</div>
 		</div>
 	</div>
-</div>

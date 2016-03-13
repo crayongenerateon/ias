@@ -6,12 +6,12 @@
                     </li>
                     <li class=" <?php echo ($this->uri->segment(1) == 'user' ? 'active' : 'panel-default'); ?>">
                         <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-user"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="user" class="collapse <?php echo ($this->uri->segment(2) == 'user' ? 'in' : ''); ?>">
-                            <li class="<?php echo ($this->uri->segment(1) == 'add') ? 'active' : '' ?>">
-                                <a href="<?php echo site_url('user/add') ?>">Tambah User</a>
-                            </li>
-                            <li class="<?php echo ($this->uri->segment(1) == 'list') ? 'active' : '' ?>">
+                        <ul id="user" class="collapse <?php echo ($this->uri->segment(1) == 'user' ? 'in' : ''); ?>">
+                            <li>
                                 <a href="<?php echo site_url('user') ?>">List User</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('user/role') ?>">Role</a>
                             </li>`
                         </ul>
                     </li>
