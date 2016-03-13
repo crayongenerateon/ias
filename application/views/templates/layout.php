@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">SB Admin</a>
+                    <a class="navbar-brand" href="index.html">IAS Admin</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -154,20 +154,29 @@
                     <?php $this->load->view('templates/list');?>
 
                     <div id="page-wrapper">
+                        <div class="container-fluid">
 
-                     <?php if ($this->session->flashdata('success')): ?>
-                        <div class="alert alert-success"><?php echo $this->session->flashdata('success');?></div>
-                    <?php endif ?>
+                           <?php if ($this->session->flashdata('success')): ?>
+                            <div class="alert alert-success"><?php echo $this->session->flashdata('success');?></div>
+                        <?php endif ?>
 
-                    <?php if ($this->session->flashdata('error')): ?>
-                        <div class="alert alert-danger"><?php echo $this->session->flashdata('error');?></div>
-                    <?php endif ?>
+                        <?php if ($this->session->flashdata('error')): ?>
+                            <div class="alert alert-danger"><?php echo $this->session->flashdata('error');?></div>
+                        <?php endif ?>
 
-                    <?php isset($page) ? $this->load->view($page) : null; ?>
+                        <?php isset($page) ? $this->load->view($page) : null; ?>
 
-
+                        <center>
+                            <p class="col-md-12">
+                                Copyright &COPY; 2016 <a href="#">RumahCG</a>
+                            </p>
+                        </center>
+                    </div>
+                    <!-- /.container-fluid -->
+                    
                 </div>
                 <!-- /#page-wrapper -->
+
 
             </div>
             <!-- /#wrapper -->
