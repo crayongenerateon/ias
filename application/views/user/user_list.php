@@ -1,8 +1,20 @@
-<div class="panel panel-default artpanel">
-    <div class="panel-heading artpanels">
-		<span>List User</span>
-		<a class="pull-right" href="<?php echo site_url('manage');?>">Dashboard</a>
-    </div>
+ <!-- Page Heading -->
+ <div class="row">
+ 	<div class="col-lg-12">
+ 		<h1 class="page-header">
+ 			List
+ 		</h1>
+ 		<ol class="breadcrumb">
+ 			<li>
+ 				<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+ 			</li>
+ 			<li class="active">
+ 				<i class="fa fa-edit"></i> List
+ 			</li>
+ 		</ol>
+ 	</div>
+ </div>
+ <!-- /.row -->
 
     <div class="panel-body bods" align="justify">
 		<div class="row tombols">

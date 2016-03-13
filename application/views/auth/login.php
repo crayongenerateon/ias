@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>IAS - RumahCG</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('media/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
