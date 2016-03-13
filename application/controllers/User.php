@@ -22,7 +22,7 @@ class User extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data['user'] = $this->User_model->get($params);
-		$data['page'] = 'user/list';
+		$data['page'] = 'user/user_list';
 		$this->load->view('templates/layout', $data);
 	}
 
@@ -88,8 +88,127 @@ class User extends CI_Controller {
 		}
 		$data['title'] = $data['operation'].' User';
 		$data['role'] = $this->User_model->get_role();
-		$data['page'] = 'user/add';
+		$data['page'] = 'user/user_add';
 		$this->load->view('templates/layout', $data);
+	}
+
+	public function del($id = null)
+	{
+		if ($_POST) {
+			$this->User_model->del(array('id' => $id));
+
+			$this->session->set_flashdata('success', 'Hapus pengguna berhasil');
+			redirect('user');
+		}else{
+			if (isset($id)) {
+				$data['user'] = $this->User_model->get(array('id' => $id));
+				if (count($data['user']) == 0) {
+					redirect('user');
+				}
+			}
+			$data['title'] = 'Hapus Pengguna';
+			$data['page'] = 'user/user_del';
+			$this->load->view('templates/layout', $data);
+		}
+	}
+
+	public function rpw($id = null)
+	{
+		if ($id == null) {
+			redirect('user');
+		}
+
+		$this->load->library('form_validation');
+
+		if ($_POST) {
+			$this->form_validation->set_rules('inputPassword', 'Password Baru', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('inputPasswordConf', 'Password Konfirmasi', 'trim|required|xss_clean|matches[inputPassword]');
+
+			$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+			if ($this->form_validation->run()) {
+				$params['id'] = $id;
+				$params['password'] = sha1($this->input->post('inputPassword', TRUE));
+				$ret = $this->User_model->add($params);
+
+				$this->session->set_flashdata('success', 'Berhasil reset password');
+				redirect('user');
+			}
+		}
+
+		if (isset($id)) {
+			$data['user'] = $this->User_model->get(array('id' => $id));
+			if (count($data['user']) == 0) {
+				redirect('user');
+			}
+		}
+		$data['title'] = 'Reset Password';
+		$data['page'] = 'user/reset_password';
+		$this->load->view('templates/layout', $data);
+	}
+
+	public function role($offset = null)
+	{
+		$this->load->library('pagination');
+
+		$config['base_url'] = site_url('user/role');
+		$config['total_rows'] = count($this->User_model->get_role());
+		$config['per_page'] = 10;
+		$config['uri_segment'] = 4;
+		$this->pagination->initialize($config);
+
+		$params['limit'] = 10;
+		$params['offset'] = $offset;
+		$data['role'] = $this->User_model->get_role($params);
+		$data['title'] = 'Role List';
+		$data['page'] = 'user/role_list';
+		$this->load->view('templates/layout', $data);
+	}
+
+	public function add_role($id = null)
+	{
+		$data['operation'] = isset($id) ? 'Edit' : 'Tambah';
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('inputRole', 'Jabatan', 'trim|required|xss_clean');
+		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+		if ($this->form_validation->run()) {
+			if ($this->input->post('inputId', TRUE)) {
+				$params['id'] = $this->input->post('inputId', TRUE);
+			}
+			$params['role'] = $this->input->post('inputRole', TRUE);
+			$this->User_model->add_role($params);
+
+			$this->session->set_flashdata('success', $data['operation'] . ' jabatan berhasil');
+			redirect('user/role');
+		}
+		if (isset($id)) {
+			$data['role'] = $this->User_model->get_role(array('id' => $id));
+			if (count($data['role']) == 0) {
+				redirect('user/role');
+			}
+		}
+		$data['title'] = $data['operation'] . ' Role';
+		$data['page'] = 'user/role_add';
+		$this->load->view('templates/layout', $data);
+	}
+
+	public function del_role($id = null)
+	{
+		if ($_POST) {
+			$this->User_model->del_role(array('id' => $id));
+
+			$this->session->set_flashdata('success', 'Hapus jabatan berhasil');
+			redirect('user/role');
+		}else{
+			if (isset($id)) {
+				$data['role'] = $this->User_model->get_role(array('id' => $id));
+				if (count($data['role']) == 0) {
+					redirect('user/role');
+				}
+			}
+			$data['title'] = 'Hapus Role';
+			$data['page'] = 'user/role_del';
+			$this->load->view('templates/layout', $data);
+		}
 	}
 
 }

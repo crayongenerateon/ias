@@ -1,114 +1,188 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>SAKTI <?php echo isset($title) ? ' | ' . $title : null; ?></title>
-	<link rel="shortcut icon" href="<?php echo base_url('media/ico/sakti.png') ?>" width="100px">
 
-	<link href="<?php echo base_url('media/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('media/css/ionicons.min.css') ?>" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('media/css/style-dashboard.css') ?>" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<script src="<?php echo base_url('media/js/jquery-1.11.1.min.js') ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('media/js/bootstrap.min.js') ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('media/js/slide.js') ?>" type="text/javascript"></script>
-	<script src="<?php echo base_url('media/js/template.js') ?>" type="text/javascript"></script>
+    <title>IAS - RumahCG</title>
 
-</head>
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url('media/css/bootstrap.min.css') ?>" rel="stylesheet">
 
-<body <?php echo isset($ngapp) ? $ngapp : null;?>>
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url('media/css/sb-admin.css') ?>" rel="stylesheet">
 
-	<nav class="navbar navbar-default navbar-fixed-top navsu">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-					MENU
-				</button>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a href=""><font color="#333"><h3 class="hidden-xs" style="margin:4px 10px 0px 0px;"><img src="<?php echo base_url('media/ico/sakti2.png') ?>" width="60%"></h3></font></a>
-				<a href=""><font color="#333"><h2 class="hidden-lg hidden-md hidden-sm" style="margin:10px 10px 10px 100px;">Sakti</h2></font></a>
-			</div>
+    <!-- Morris Charts CSS -->
+    <link href="<?php echo base_url('media/css/plugins/morris.css') ?>" rel="stylesheet">
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<?php echo site_url('manage');?>"><span class="ion-ios-home ionst"></span> Home</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<?php echo $this->session->userdata('s_full_name'); ?>
-							<img src="<?php echo base_url('media/img/people.png');?>" class="img-pe img-circle">
-							<span class="caret ionsh"></span></a>
-							<ul class="dropdown-menu drome" role="menu">
-								<li class="liaprofile">
-									<a href="<?php echo site_url('manage/profile');?>"><span class="ion-person"></span> Profile</a></li>
-									<li class="divider divide"></li>
-									<li class="lialogout"><a href="<?php echo site_url('manage/auth/logout');?>"><span class="ion-log-out"></span> Logout</a></li>
-								</ul>
-							</li>
-						</ul>
-						<form action="#" class="col-md-3 pull-right">
-							<p></p>
-							<span>
-								<input type="text" name="search" value="" class="form-control" placeholder="Search Menu..." style="border-radius: 1px; border: 1px solid #fff;">
-							</span>
-						</form>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container-fluid -->
-			</nav>
+    <!-- Custom Fonts -->
+    <link href="<?php echo base_url('media/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
 
-			<div class="container-fluid main-container">
-				<!-- 	<div class="absolute-wrapper"> </div> -->
-				<div id="wrapper">
-					<div id="sidebar-wrapper">
-						<?php $this->load->view('templates/list');?>
-					</div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-					<!-- Halaman konten -->
-					<div id="page-content-wrapper">
+    </head>
 
-						<!-- Div semua konten -->
-						<div class="page-content inset">
+    <body>
 
-							<?php if ($this->session->flashdata('success')): ?>
-								<div class="alert alert-success"><?php echo $this->session->flashdata('success');?></div>
-							<?php endif ?>
+        <div id="wrapper">
 
-							<?php if ($this->session->flashdata('error')): ?>
-								<div class="alert alert-danger"><?php echo $this->session->flashdata('error');?></div>
-							<?php endif ?>
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">SB Admin</a>
+                </div>
+                <!-- Top Menu Items -->
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                        <ul class="dropdown-menu message-dropdown">
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><strong>John Smith</strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><strong>John Smith</strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <div class="media">
+                                        <span class="pull-left">
+                                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        </span>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><strong>John Smith</strong>
+                                            </h5>
+                                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="message-footer">
+                                <a href="#">Read All New Messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                        <ul class="dropdown-menu alert-dropdown">
+                            <li>
+                                <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">View All</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 
+                            <?php echo $this->session->userdata('i_full_name'); ?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?php echo site_url('auth/logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <?php $this->load->view('templates/list');?>
 
-							<?php isset($page) ? $this->load->view($page) : null; ?>
+                    <div id="page-wrapper">
 
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<nav class="navbar navbar-default navbar-static-bottom navas">
-						<div class="container">
-							<div class="row">
-								<center>
-									<p class="col-md-12">
-										Copyright &COPY; 2016 <a href="#">Sakti</a>
-									</p>
-								</center>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
+                     <?php if ($this->session->flashdata('success')): ?>
+                        <div class="alert alert-success"><?php echo $this->session->flashdata('success');?></div>
+                    <?php endif ?>
+
+                    <?php if ($this->session->flashdata('error')): ?>
+                        <div class="alert alert-danger"><?php echo $this->session->flashdata('error');?></div>
+                    <?php endif ?>
+
+                    <?php isset($page) ? $this->load->view($page) : null; ?>
 
 
-		</body>
-		</html>
+                </div>
+                <!-- /#page-wrapper -->
+
+            </div>
+            <!-- /#wrapper -->
+
+            <!-- jQuery -->
+            <script src="<?php echo base_url('media/js/jquery.js') ?>"></script>
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="<?php echo base_url('media/js/bootstrap.min.js') ?>"></script>
+
+            <!-- Morris Charts JavaScript -->
+            <script src="<?php echo base_url('media/js/plugins/morris/raphael.min.js') ?>"></script>
+            <script src="<?php echo base_url('media/js/plugins/morris/morris.min.js') ?>"></script>
+            <script src="<?php echo base_url('media/js/plugins/morris/morris-data.js') ?>"></script>
+
+        </body>
+
+        </html>
