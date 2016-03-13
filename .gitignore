@@ -1,0 +1,4 @@
+development/
+upload/
+*.bak
+.DS_store
