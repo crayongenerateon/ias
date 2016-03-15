@@ -22,7 +22,7 @@
 	    	</div>
 	    	<div class="col-md-2 col-sm-3 col-xs-3 butst">
 	    		<a class="btn btn-default btn-md pull-right buton"
-	    			href="<?php echo site_url('manage/user/role/add');?>" role="button">
+	    			href="<?php echo site_url('user/role/add');?>" role="button">
 	    			<span class="ion-plus-circled"></span> Add Role</a>
 	    	</div>
 	    </div>

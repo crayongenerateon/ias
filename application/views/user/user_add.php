@@ -53,7 +53,7 @@
  				<?php endforeach ?>
  			</select>
  			<br>
- 			<?php if ($this->uri->segment(3) == 'add'): ?>
+ 			<?php if ($this->uri->segment(2) == 'add'): ?>
  				<label>Password Baru*</label>
  				<input type="password" name="inputPassword" value="" class="form-control">
  				<br>
