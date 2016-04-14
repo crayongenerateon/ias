@@ -1,0 +1,7 @@
+<div class="col-md-8">
+		<label>Dari Tanggal*</label>
+		<input id="inputStart" name="cuti_start" type="text" class="form-control datepicker-date" value="<?php echo $inputStart; ?>">
+		<br>
+		<label>Sampai Tanggal*</label>
+		<input id="inputEnd" name="cuti_end" type="text" class="form-control datepicker-date hasDatepickerr" value="<?php echo $inputEnd; ?>">
+		<br>

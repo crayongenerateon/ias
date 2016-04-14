@@ -53,6 +53,6 @@ $route['(:any)/(:any)/add'] = '$1/add_$2';
 $route['(:any)/edit/(:num)'] = '$1/add/$2';
 $route['(:any)/(:any)/edit/(:num)'] = '$1/add_$2/$3';
 
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'base';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

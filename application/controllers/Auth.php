@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
 	function doLogin()
 	{
 		if ($this->session->userdata('i_login')) {
-			redirect('user');
+			redirect('base');
 		}
 		$username = $this->input->post('username');
 		$password = sha1($this->input->post('password'));
@@ -49,7 +49,7 @@ class Auth extends CI_Controller {
 				);
 
 			$this->session->set_userdata( $array );
-			redirect('user');
+			redirect('base');
 		}else{
 			$this->session->set_flashdata('arrorLogin', 'Incorrect Username or Password');
 			redirect('auth/login');

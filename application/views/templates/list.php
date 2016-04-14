@@ -15,23 +15,47 @@
                             </li>`
                         </ul>
                     </li>
+                    <li class=" <?php echo ($this->uri->segment(1) == 'cuti' ? 'active' : 'panel-default'); ?>">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#cuti"><i class="fa fa-fw fa-file"></i> Cuti <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="cuti" class="collapse <?php echo ($this->uri->segment(1) == 'cuti' ? 'in' : ''); ?>">
+                            <li>
+                                <a href="<?php echo site_url('cuti') ?>">List Cuti</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('cuti/add') ?>">Add cuti</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" <?php echo ($this->uri->segment(1) == 'lembur' ? 'active' : 'panel-default'); ?>">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#lembur"><i class="fa fa-fw fa-edit"></i> Lembur <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="lembur" class="collapse <?php echo ($this->uri->segment(1) == 'lembur' ? 'in' : ''); ?>">
+                            <li>
+                                <a href="<?php echo site_url('lembur') ?>">List Cuti</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('lembur/add') ?>">Add cuti</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" <?php echo ($this->uri->segment(1) == 'holiday' ? 'active' : 'panel-default'); ?>">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#holiday"><i class="fa fa-fw fa-table"></i> Hari Libur <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="holiday" class="collapse <?php echo ($this->uri->segment(1) == 'holiday' ? 'in' : ''); ?>">
+                            <li>
+                                <a href="<?php echo site_url('holiday') ?>">List Hari Libur</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('holiday/add') ?>">Add Hari Libur</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
                     </li>
                     <li>
                         <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
                     </li>
                     <li>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                     <li>
                         <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>

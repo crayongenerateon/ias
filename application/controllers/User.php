@@ -30,7 +30,7 @@ class User extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('inputFullName', 'Nama Lengkap', 'required');
-		$this->form_validation->set_rules('inputEmail', 'Email', 'trim|required');
+		//$this->form_validation->set_rules('inputEmail', 'Email', 'trim|required');
 		//$this->form_validation->set_rules('user_phone', 'Telepon', 'required');
 		//$this->form_validation->set_rules('user_born', 'Tempat Lahir', 'required');
 		//$this->form_validation->set_rules('user_date_born', 'Tanggal Lahir', 'required');
